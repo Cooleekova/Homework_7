@@ -1,19 +1,11 @@
-# Необходимо уметь хранить информацию по альбомам и трекам в них. Это можно сделать, используя классы Album и Track.
-# У класса Track есть поля:
-# Название;
-# Длительность в минутах(используется тип данных int).
-# И метод show, выводящий информацию по треку в виде <Название-Длительность>.
-
-# У класса Album есть поля:
-# Название альбома
-# Группа
-# Список треков
-# И три метода:
-# get_tracks - выводит информацию по всем трекам(используется метод show).
-# add_track - добавление нового трека в список треков.
-# get_duration - выводит длительность всего альбома.
-# Задание:
-# Создать 2 альбома с 3 треками. Для каждого вывести его длительность.
+# Задача №2 "Аудиоколлекция". Продолжение.
+# В первой части задания вы создали 2 альбома с 3 треками и вывели длительность для каждого.
+# Попробуйте получить более подробную информацию о них, опираясь на примеры использования методов в описании заданий:
+# Задание 1:
+# Вместо метода show использовать магический метод __str__ у трека для вывода информации по треку.
+# У Класса Альбом также реализовать магический метод __str__ для вывода информации по альбому и его треков.
+# Задание 2:
+# Реализовать возможность сравнивать треки по длительности. Для этого нужно будет определить магические методы.
 
 class Track:
     def __init__(self, name, duration):
@@ -50,7 +42,7 @@ class Album:
 
     def get_tracks(self):
         for track in self.tracks:
-            print(track)
+            print(f'                 {track}')
         return f''
 
     def add_track(self, new_track):
@@ -63,31 +55,20 @@ class Album:
         print(f'Длительность альбома {self.name} - {album_duration} минут')
 
     def __str__(self):
-        # self.get_tracks()
         print(f'Название группы: {self.band}\nНазвание альбома: {self.name}\nСписок треков: ')
         return f'{self.get_tracks()}'
-
-
 
 
 print()
 revolver = Album('Revolver', 'Beatles')
 revolver.tracks = [yellow_submarine, she_said, good_day_sunshine]
-# revolver.get_tracks()
-# print(revolver.tracks)
 
-print()
 nevermind = Album('Nevermind', 'Nirvana')
 nevermind.tracks = [breed, lithium, polly]
-# nevermind.get_tracks()
-
 
 print(nevermind)
 print(revolver)
 
-# print()
-# revolver.get_duration()
-# nevermind.get_duration()
 
 
 
